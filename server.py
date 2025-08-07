@@ -7,6 +7,10 @@ from openai import OpenAI
 
 app = FastAPI(title="Deep Researcher")
 
+@app.get("/", response_class=PlainTextResponse)
+def index() -> str:
+    return "OK"
+
 def run_research(topic: str, effort: str = "medium", max_tokens: int = 120000) -> str:
     if not os.getenv("OPENAI_API_KEY"):
         raise HTTPException(status_code=500, detail="OPENAI_API_KEY environment variable is not set")
