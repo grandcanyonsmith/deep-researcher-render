@@ -16,5 +16,7 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 COPY deep-researcher/app.py /app/app.py
 COPY deep-researcher/server.py /app/server.py
 
-EXPOSE 8000
-CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
+# Render expects Docker services to listen on $PORT (defaults to 10000)
+EXPOSE 10000
+ENV PORT=10000
+CMD ["sh", "-lc", "uvicorn server:app --host 0.0.0.0 --port ${PORT:-10000}"]
