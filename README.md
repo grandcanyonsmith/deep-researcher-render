@@ -2,9 +2,10 @@
 
 FastAPI web service that streams research using OpenAI `o3-deep-research` via the Responses API.
 
+- Service name in Blueprint: `deep-researcher-service`
 - Endpoint: `/research?topic=ping`
 - Env: `OPENAI_API_KEY`
-- Port: `8000`
+- Port: `10000` (binds to `$PORT`)
 
 ## Deploy
 
