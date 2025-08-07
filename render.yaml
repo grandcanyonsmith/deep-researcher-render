@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: deep-researcher
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: ./
+    healthCheckPath: /research?topic=ping
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
