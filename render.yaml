@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: deep-researcher
+    name: deep-researcher-service
     runtime: docker
     plan: starter
     dockerfilePath: ./Dockerfile
